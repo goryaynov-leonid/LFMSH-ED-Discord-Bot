@@ -12,11 +12,10 @@ client.once('ready', () => {
 client.on('interactionCreate', async interaction => {
     console.log('mes')
 	if (!interaction.isChatInputCommand()) return;
-
 	const { commandName } = interaction;
 
 	if (commandName === 'ping') {
-		await interaction.reply('Pong!');
+		await interaction.reply('Typed: ' + interaction.options.get('input').value);
 	} else if (commandName === 'server') {
 		await interaction.reply('Server info.');
 	} else if (commandName === 'user') {

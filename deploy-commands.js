@@ -3,7 +3,10 @@ const { REST } = require('@discordjs/rest');
 const { clientId, guildId, token } = require('./config.json');
 
 const commands = [
-	new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
+	new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!').addStringOption(option =>
+		option.setName('input')
+			.setDescription('The input to echo back')
+			.setRequired(true)),
 	new SlashCommandBuilder().setName('server').setDescription('Replies with server info!'),
 	new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
 	new SlashCommandBuilder().setName('add').setDescription('add'),
